@@ -44,9 +44,25 @@ router.post('/add-book',(req,res) => {
   
 })
 
-router.get('/view-books',(req,res)=>{
+router.get('/view-books',(req,res,next)=>{
   bookHelpers.viewbooks().then((book)=>{
+
+    var Handlebars = require('handlebars');
+
+    Handlebars.registerHelper("inc", function(value, options)
+    {
+        return parseInt(value) + 1;
+    });
+
         res.render('view-books',{book})    
+  }),
+
+  router.get('/view-book/:id',(req,res)=>{
+    let id=req.params.id
+    bookHelpers.viewbook(id).then((result)=>{
+      res.render('view-book',{result})
+    })
+  
   })
 
 })
