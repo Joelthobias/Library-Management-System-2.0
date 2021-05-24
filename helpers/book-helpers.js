@@ -18,5 +18,12 @@ module.exports={
             let book=await db.get().collection('book').findOne({_id:ObjectId(id)})
             resolve(book)
         })
+    },
+    deletebook:(id)=>{
+        return new Promise(async(resolve,reject)=>{
+            db.get().collection('book').deleteOne({_id:ObjectId(id)}).then(()=>{
+                resolve(true)
+            })
+        })        
     }
 }

@@ -290,20 +290,29 @@
                 </nav>
                 <!-- End of Topbar -->
 
-<div onclick="window.history.go(-1);" class=" ">
-
-                <button class="rounded-circle border-0 mb-4" id="barToggle"><i class="fas fa-arrow-alt-circle-left fa-2x"></i></button>
+            <div onclick="window.history.go(-1);" class=" ">
+                <button class="rounded-circle border-0 mb-4" id="barToggle"> 
+                    <span style="color: Dodgerblue;">
+                        <i class="fas fa-arrow-alt-circle-left fa-2x"></i>
+                    </span>
+                </button>
             </div>          
 <style>
+
+@media(min-width:786px){
+
+
 .nav-link::after {
     width: 1rem;
     text-align: center;
     float: right;
     vertical-align: 0;
     border: 0;
+
     font-weight: 900;
     content: '\f105';
     font-family: 'Font Awesome 5 Free';
+}
 }
 
 </style>

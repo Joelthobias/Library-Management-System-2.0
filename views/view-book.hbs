@@ -3,6 +3,10 @@
         <div class="col-md-6">
             <div class="cover">
                 <img src="data:image/png;base64,{{result.img}}" alt="" class="img-fluid">
+            <div class="row d-none d-md-flex d-lg-none m-3">
+                <button type="button" onclick="window.location.href='/edit-book/{{result._id}}'"  class="col-12   my-2 btn btn-primary">Edit</button>
+                <button type="button" onclick="window.location.href='/del-book/{{result._id}}'"  class="col-12 my-2 btn btn-outline-danger">Delete</button>
+            </div>                 
             </div>
         </div>
         <div class="col-md-6">
@@ -29,8 +33,12 @@
                     <td>{{result.dop}}</td>
                 </tr>                                
             </tbody>
-            </table>            
-
+            </table> 
+            <div class="align-items-center d-md-none d-lg-block">
+                <button onclick="window.location.href='/edit-book/{{result._id}}'" type="button" class="col-6   mx-auto btn btn-primary">Edit</button>
+                <button onclick="window.location.href='/del-book/{{result._id}}'" type="button" class="col-5 mx-auto btn btn-outline-danger">Delete</button>
+            </div>           
+            
         </div>
     </div>
 </div>    

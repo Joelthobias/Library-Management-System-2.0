@@ -63,6 +63,13 @@ router.get('/view-books',(req,res,next)=>{
       res.render('view-book',{result})
     })
   
+  }),
+  router.get('/del-book/:id',(req,res)=>{
+    let id=req.params.id
+    console.log(id);
+    bookHelpers.deletebook(id).then(()=>{
+      res.redirect('/view-books')
+    })
   })
 
 })
