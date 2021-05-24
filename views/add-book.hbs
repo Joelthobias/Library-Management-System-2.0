@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-            <form action="/add-book" method="post" role="form" enctype="application/x-www-form-urlencoded">
+            <form action="/add-book" method="POST"  enctype="multipart/form-data" role="form" >
                 {{!-- <legend>Add Book</legend> --}}
                 <h1 class="h3 mb-0 text-gray-800 pb-3" >Add Book</h1>
                 <div class="row">
@@ -17,7 +17,7 @@
 
                 <div class="form-group col-12 col-sm-6 col-md-4">
                     <label for="price">Price</label>
-                    <input type="text" class="form-control" name="price" id="price" placeholder="Price">
+                    <input type="number" class="form-control" name="price" id="price" placeholder="Price">
                 </div>
 
                 <div class="form-group col-12 col-sm-6 col-md-4">
@@ -26,11 +26,11 @@
                 </div>
                 <div class="form-group col-12 col-sm-6 col-md-4">
                     <label for="dop">Date of Publishing</label>
-                    <input type="text" class="form-control" name="dop" id="dop" placeholder="Date of Publishing">
+                    <input type="date" class="form-control" name="dop" id="dop" placeholder="Date of Publishing">
                 </div>
                 <div class="form-group col-12 col-sm-6 col-md-4">
-                    <label for="price">Price</label>
-                    <input type="text" class="form-control" name="price" id="price" placeholder="Price">
+                    <label for="img">Image</label>
+                    <input type="file" class="form-control" name="img" id="img" placeholder="img">
                 </div>                
                 </div>
 

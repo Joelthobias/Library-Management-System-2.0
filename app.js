@@ -8,7 +8,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var hbs=require('express-handlebars')
 var app = express();
-
+var fileuplaod=require('express-fileupload')
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
@@ -17,6 +17,7 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(fileuplaod())
 app.use(express.static(path.join(__dirname, 'public')));
 db.connect((err)=>{
   if(!err) console.log("Database Connected");
