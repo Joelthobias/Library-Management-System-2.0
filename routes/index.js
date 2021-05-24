@@ -43,4 +43,11 @@ router.post('/add-book',(req,res) => {
 
   
 })
+
+router.get('/view-books',(req,res)=>{
+  bookHelpers.viewbooks().then((book)=>{
+        res.render('view-books',{book})    
+  })
+
+})
 module.exports = router;
