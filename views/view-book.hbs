@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-md-6">
             <div class="cover">
-                <img src="data:image/png;base64,{{result.img}}" alt="" class="img-fluid">
+                <img src="data:image/png;base64,{{result.img}}" alt="" class="cen img-fluid">
             <div class="row d-none d-md-flex d-lg-none m-3">
                 <button type="button" onclick="window.location.href='/edit-book/{{result._id}}'"  class="col-12   my-2 btn btn-primary">Edit</button>
                 <button type="button" onclick="window.location.href='/del-book/{{result._id}}'"  class="col-12 my-2 btn btn-outline-danger">Delete</button>
@@ -14,22 +14,27 @@
             <tbody>
                 <tr>
                     <td>Book Name</td>
+                    <td></td>
                     <td>{{result.bk_name}}</td>
                 </tr>
                                 <tr>
                     <td>Author Name</td>
+                    <td></td>
                     <td>{{result.au_name}}</td>
                 </tr>
                 <tr>
                     <td>Language</td>
+                    <td></td>
                     <td>{{result.lg}}</td>
                 </tr>
                 <tr>
                     <td>price</td>
+                    <td></td>
                     <td>{{result.price}}</td>
                 </tr>
                 <tr>
                     <td>Date of Publication</td>
+                    <td></td>
                     <td>{{result.dop}}</td>
                 </tr>                                
             </tbody>
@@ -42,3 +47,14 @@
         </div>
     </div>
 </div>    
+<style>
+.cen {
+    max-height: 350px;
+
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+</style>
