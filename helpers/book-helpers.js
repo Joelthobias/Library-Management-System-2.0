@@ -1,6 +1,6 @@
 // const { ObjectId } = require('bson')
 var db=require('../config/connection')
-var Objectid=require('mongodb').BSONType
+var ObjectId = require("mongodb").ObjectID;
 module.exports={
     addbook:(book,callback)=>{
          book.price=parseInt(book.price)
