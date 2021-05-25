@@ -38,10 +38,16 @@
                     <label for="pub">Publishers</label>
                     <input type="text" class="form-control" name="pub" id="pub" placeholder="Publishers">
                 </div>
-                <div class="form-group col-12 col-sm-6 col-md-4">
-                    <label for="img">Image</label>
-                    <input type="file" class="form-control" name="img" id="img" placeholder="img">
+
+                <div class="form-group col-12 col-sm-6 pt-4 col-md-4">
+                    <input type="file" name="img" id="img" class="inputfile inputfile-3" data-multiple-caption="{count} files selected" multiple="">
+					<label for="img">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17"><path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"></path>
+                        </svg> 
+                        <span>Choose a file…</span>
+                    </label>
                 </div>                
+
                 </div>
 
 
@@ -52,3 +58,70 @@
         </div>
     </div>
 </div>
+    <style>
+        .inputfile {
+            width: 0.1px;
+            height: 0.1px;
+            opacity: 0;
+            overflow: hidden;
+            position: absolute;
+            z-index: -1;
+        }
+        .inputfile + label {
+            max-width: 80%;
+            font-size: 1rem;
+            font-weight: 700;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            cursor: pointer;
+            display: inline-block;
+            overflow: hidden;
+            padding: 0.625rem 1.25rem;
+        }
+        .inputfile + label svg {
+            width: 1em;
+            height: 1em;
+            vertical-align: middle;
+            fill: #6e707e;
+            margin-top: -0.25em;
+            margin-right: 0.25em;
+        }
+        .inputfile + label {
+            color: #6e707e;
+            border: 1px solid #d1d3e2;
+        }        
+    </style>
+    <script>
+        'use strict';;
+        (function (document, window, index) {
+            var inputs = document.querySelectorAll('.inputfile');
+            Array.prototype.forEach.call(inputs, function (input) {
+                var label = input.nextElementSibling,
+                    labelVal = label.innerHTML;
+
+                input.addEventListener('change', function (e) {
+                    var fileName = '';
+                    if (this.files && this.files.length > 1) 
+                        fileName = (this.getAttribute('data-multiple-caption') || '').replace('{count}', this.files.length);
+                    else 
+                        fileName = e.target.value.split('\\').pop();
+                    
+
+                    if (fileName) 
+                        label.querySelector('span').innerHTML = fileName;
+                    else 
+                        label.innerHTML = labelVal;
+                    
+                });
+
+                // Firefox bug fix
+                input.addEventListener('focus', function () {
+                    input.classList.add('has-focus');
+                });
+                input.addEventListener('blur', function () {
+                    input.classList.remove('has-focus');
+                });
+            });
+        }(document, window, 0));
+
+</script>
