@@ -70,7 +70,46 @@ router.get('/view-books',(req,res,next)=>{
     bookHelpers.deletebook(id).then(()=>{
       res.redirect('/view-books')
     })
-  })
+  }),
+    router.get('/edit-book/:id',async(req,res)=>{
+    let id=req.params.id
+    console.log(id);
+    let result=await bookHelpers.viewbook(id)
+      res.render('edit-book',{result})
+    
+  }),
+  router.post('/edt-book/:id',(req,res)=>{
+    let id=req.params.id
+    bookHelpers.updatebook(id,req.body).then(()=>{
+      res.redirect('/view-books')
+      let image=req.files.img
+    let name = req.files.img.name
 
+      image.mv('./public/img/'+name,(err,done)=>{
+        if(!err){
+          base64("./public/img/"+name).then((response) => {
+                let data =req.body
+                data.img=response
+                bookHelpers.addbook(data,(result)=>{
+                  fs.unlink("./public/img/" + name, (err) => {
+                    if (err) throw err;
+                    console.log("file deleted");
+                    });
+                  res.redirect('/add-book')
+                })
+            }
+        )
+        .catch(
+            (error) => {
+                console.log(error); // Logs an error if there was one
+            }
+        )
+        
+        }else{
+          console.log(err);
+        }
+      })
+        })
+  })
 })
 module.exports = router;
