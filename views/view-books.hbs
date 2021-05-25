@@ -1,5 +1,5 @@
 <div class="row p-4">
-    <table class="table table-borderless  table-hover responsive">
+    <table class="table table-borderless  table-hover table-responsive">
     <thead>
         <tr>
         <th scope="col">#</th>
@@ -25,3 +25,19 @@
     </table>    
 </div>
 
+<style>
+    .table-responsive {
+    display: inline-table;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+@media(max-width:700px){
+    .table-responsive {
+    display: block;
+    width: 134%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+}
+</style>
