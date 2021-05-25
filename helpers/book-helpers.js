@@ -3,7 +3,7 @@ var db=require('../config/connection')
 
 module.exports={
     addbook:(book,callback)=>{
-        let price=parseInt(book.price)
+         book.price=parseInt(book.price)
         db.get().collection("book").insertOne(book).then((data)=>{
             callback(true)
         })
@@ -29,7 +29,7 @@ module.exports={
     },
     updatebook: (id, book) => {
     // let price=parseInt(pro.price)
-    let price=parseInt(book.price)
+    book.price=parseInt(book.price)
     return new Promise((resolve, reject) => {
       db.get()
         .collection('book').updateOne({ _id:ObjectId(id) },
@@ -37,11 +37,12 @@ module.exports={
             $set: {
               bk_name: book.bk_name,
               au_name: book.au_name,
-              price: price,
+              price: book.price,
               lg: book.lg,
               dop:book.dop,
               cat:book.cat,
               pub:book.pub,
+              img:book.img
             },
           }
         )

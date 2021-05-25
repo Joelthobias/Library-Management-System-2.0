@@ -57,14 +57,15 @@ router.get('/view-books',(req,res,next)=>{
         res.render('view-books',{book})    
   }),
 
-  router.get('/view-book/:id',(req,res)=>{
-    let id=req.params.id
-    bookHelpers.viewbook(id).then((result)=>{
-      res.render('view-book',{result})
-    })
+router.get('/view-book/:id',(req,res)=>{
+  let id=req.params.id
+  bookHelpers.viewbook(id).then((result)=>{
+    res.render('view-book',{result})
+  })
   
-  }),
-  router.get('/del-book/:id',(req,res)=>{
+}),
+
+router.get('/del-book/:id',(req,res)=>{
     let id=req.params.id
     console.log(id);
     bookHelpers.deletebook(id).then(()=>{
@@ -80,36 +81,28 @@ router.get('/view-books',(req,res,next)=>{
   }),
   router.post('/edt-book/:id',(req,res)=>{
     let id=req.params.id
-    bookHelpers.updatebook(id,req.body).then(()=>{
-      res.redirect('/view-books')
-      let image=req.files.img
+    let image=req.files.img
     let name = req.files.img.name
-
-      image.mv('./public/img/'+name,(err,done)=>{
+    image.mv('./public/img/'+name,(err,done)=>{
         if(!err){
           base64("./public/img/"+name).then((response) => {
                 let data =req.body
                 data.img=response
-                bookHelpers.addbook(data,(result)=>{
-                  fs.unlink("./public/img/" + name, (err) => {
-                    if (err) throw err;
-                    console.log("file deleted");
+                  bookHelpers.updatebook(id,data).then(()=>{
+                    fs.unlink("./public/img/" + name, (err) => {
+                      if (err) throw err;
+                        console.log("file deleted");
                     });
-                  res.redirect('/add-book')
-                })
-            }
-        )
-        .catch(
-            (error) => {
+                    res.redirect('/view-books')
+                  })
+          }).catch((error) => {
                 console.log(error); // Logs an error if there was one
-            }
-        )
-        
+            })
         }else{
           console.log(err);
         }
-      })
-        })
+    })
+        
   })
 })
 module.exports = router;
