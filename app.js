@@ -12,7 +12,19 @@ var fileuplaod=require('express-fileupload')
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
-app.engine('hbs', hbs({extname:'hbs',defaultLayout:'layout',layoutsDIR:__dirname+'/views/layout/',partialsDIR:__dirname+'/views/partials/'}))
+app.engine('hbs', hbs({
+    helpers: {
+        inc: function (value, options) {
+            return parseInt(value) + 1;
+        }
+    },
+    extname: 'hbs',
+    defaultLayout: 'layout',
+    layoutsDIR: __dirname + '/views/layout/',
+    partialsDIR: __dirname + '/views/partials/'
+}))
+app.use(logger('dev'));
+
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
