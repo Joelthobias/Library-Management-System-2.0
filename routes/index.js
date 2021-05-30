@@ -46,11 +46,9 @@ router.post('/add-book',(req,res) => {
 
 router.get('/view-books',(req,res,next)=>{
   bookHelpers.viewbooks().then((book)=>{
-
-
-
-        res.render('view-books',{book})    
-  }),
+        res.render('view-books',{book})  
+  })  
+}),
 
 router.get('/view-book/:id',(req,res)=>{
   let id=req.params.id
@@ -66,15 +64,19 @@ router.get('/del-book/:id',(req,res)=>{
     bookHelpers.deletebook(id).then(()=>{
       res.redirect('/view-books')
     })
-  }),
-    router.get('/edit-book/:id',async(req,res)=>{
+}),
+
+
+router.get('/edit-book/:id',async(req,res)=>{
     let id=req.params.id
     console.log(id);
     let result=await bookHelpers.viewbook(id)
       res.render('edit-book',{result})
     
-  }),
-  router.post('/edt-book/:id',(req,res)=>{
+}),
+
+
+router.post('/edt-book/:id',(req,res)=>{
     let id=req.params.id
     let image=req.files.img
     let name = req.files.img.name
@@ -97,7 +99,10 @@ router.get('/del-book/:id',(req,res)=>{
           console.log(err);
         }
     })
-        
-  })
 })
+
+router.get('/add-member',(req,res)=>{
+  res.render('member/add-member')
+})
+
 module.exports = router;

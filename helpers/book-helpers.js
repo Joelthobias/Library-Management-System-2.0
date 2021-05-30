@@ -42,7 +42,8 @@ module.exports={
               dop:book.dop,
               cat:book.cat,
               pub:book.pub,
-              img:book.img
+              img:book.img,
+              nop:book.nop
             },
           }
         )
