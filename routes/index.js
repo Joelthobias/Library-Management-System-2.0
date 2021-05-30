@@ -101,8 +101,12 @@ router.post('/edt-book/:id',(req,res)=>{
     })
 })
 
-router.get('/add-member',(req,res)=>{
+router.get('/add-membs',(req,res)=>{
   res.render('member/add-member')
+})
+
+router.post('/add-membs',(req,res)=>{
+  
 })
 
 module.exports = router;

@@ -22,7 +22,7 @@
     <div id="wrapper">
 
         <!-- Sidebar -->
-        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+        <ul class="navbar-nav toggled bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand "  href="/">
@@ -67,6 +67,44 @@
 
             </li>
             
+
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Members
+            </div>
+            <hr class="sidebar-divider d-none d-md-block">
+
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="/view-membs" >
+                    <i class="fas fa-fw fa-user"></i>
+                    <span>All members</span>
+                </a>
+
+            </li>
+            <hr class="sidebar-divider d-none d-md-block">
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="/add-membs" >
+                    <i class="fas fa-fw fa-plus"></i>
+                    <span>Add member</span>
+                </a>
+
+            </li>
+
+            {{!-- <hr class="sidebar-divider d-none d-md-block">
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="" >
+                    <i class="fas fa-fw fa-plus"></i>
+                    <span>Book given</span>
+                </a>
+
+            </li>             --}}
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
@@ -303,15 +341,15 @@
 
 
 .nav-link::after {
-    width: 1rem;
-    text-align: center;
-    float: right;
-    vertical-align: 0;
-    border: 0;
-
-    font-weight: 900;
-    content: '\f105';
-    font-family: 'Font Awesome 5 Free';
+	width: 1rem;
+	text-align: center;
+	float: right;
+	vertical-align: 0;
+	border: 0;
+	font-weight: 900;
+	content: '\f105';
+	font-family: 'Font Awesome 5 Free';
+	display: none;
 }
 }
 
