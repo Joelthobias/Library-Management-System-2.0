@@ -1,120 +1,63 @@
 <div class="container">
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-            <form action="/add-membs" method="POST"  role="form" >
-                {{!-- <legend>Add Book</legend> --}}
+            <form action="/add-membs" method="POST"  role="form"  >
                 <h1 class="h3 mb-0 text-gray-800 pb-3" >Add Members <i class="fas fa-fw fa-user"></i></h1>
-                <div class="row">
-                {{!-- <div class="form-group col-12 col-sm-6 col-md-4">
-                    <label for="name">Name</label>
-                    <input type="text" class="form-control" name="name" id="name" placeholder="Name">
-                </div>
+                <div class="row mb-3">
+                    <div class="mx-auto col-12">
+                        <div class="form-group row">
+                            <label for="name" class="col-sm-2 col-form-label">Name</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="name" name="name" placeholder="Name">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="rb" class="col-sm-2 col-form-label">Recommented by</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="rb" name="rb" placeholder="Recommented by">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                           <label for="doa" class="col-sm-2 col-form-label">Date of Admission</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="doa" name="doa" placeholder="Date of Admission">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="age" class="col-sm-2 col-form-label">Age</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="age" name="age" placeholder="Age">
+                            </div>
+                        </div>
 
-                <div class="form-group col-12 col-sm-6 col-md-4">
-                    <label for="nop">Recommented by</label>
-                    <input type="text" class="form-control" name="rb" id="rb" placeholder="Recommented by">
+                        <div class="form-group row">
+                            <label for="gen" class="col-sm-2 col-form-label">Gender</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="gen" name="gen" placeholder="Gender">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="mob" class="col-sm-2 col-form-label">Mobile</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="mob" name="mob" placeholder="Mobile">
+                            </div>
+                        </div>
+                        <div class="form-group row ">
+                            <label for="ads" class="col-sm-2 col-form-label">Address</label>
+                            <div class="col-sm-4 mb-2">
+                                <input type="text" class="form-control" id="hn" name="hn" placeholder="House Name">
+                            </div>
+                            <div class="col-sm-3 mb-2">
+                                <input type="text" class="form-control" id="po" name="po" placeholder="Post Office">
+                            </div>
+                            <div class="col-sm-3 mb-2">
+                                <input type="text" class="form-control" id="pin" name="pin" placeholder="Pincode">
+                            </div>                          
+                        </div>
+                    </div>
                 </div>    
-
-                <div class="form-group col-12 col-sm-6 col-md-4">
-                    <label for="doa">Date of Admission</label>
-                    <input type="text" class="form-control" name="doa" id="doa" placeholder="Date of Admission">
-                </div>   
-
-                <div class="form-group col-12 col-sm-6 col-md-4">
-                    <label for="age">Age</label>
-                    <input type="text" class="form-control" name="age" id="age" placeholder="Age">
-                </div>
-
-                <div class="form-group col-12 col-sm-6 col-md-4">
-                    <label for="mb">Mobile</label>
-                    <input type="text" class="form-control" name="mb" id="mb" placeholder="Mobile">
-                </div>                
-
-                <div class="form-group col-12 col-sm-6 col-md-4">
-                    <label for="gn">Gender</label>
-                    <input type="text" class="form-control" name="gn" id="gn" placeholder="Gender">
-                </div>     --}}
-
-                <div class="mx-auto col-12">
-                    <div class="form-group row">
-                        <label for="inputPassword" class="col-sm-2 col-form-label">Name</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" id="inputPassword" placeholder="Name">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="inputPassword" class="col-sm-2 col-form-label">Recommented by</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" id="inputPassword" placeholder="Recommented by">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="inputPassword" class="col-sm-2 col-form-label">Date of Admission</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" id="inputPassword" placeholder="Date of Admission">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="inputPassword" class="col-sm-2 col-form-label">Age</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" id="inputPassword" placeholder="Age">
-                        </div>
-                    </div>
-
-                    <div class="form-group row">
-                        <label for="inputPassword" class="col-sm-2 col-form-label">Gender</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" id="inputPassword" placeholder="Gender">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="inputPassword" class="col-sm-2 col-form-label">Mobile</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" id="inputPassword" placeholder="Mobile">
-                        </div>
-                    </div>
-                    <div class="form-group row ">
-                        <label for="inputPassword" class="col-sm-2 col-form-label">Address</label>
-                        <div class="col-sm-3 mb-2">
-                            <input type="text" class="form-control" id="inputPassword" placeholder="House Name">
-                        </div>
-                        <div class="col-sm-3 mb-2">
-                            <input type="text" class="form-control" id="inputPassword" placeholder="Post Office">
-                        </div>
-                        <div class="col-sm-3 mb-2">
-                            <input type="text" class="form-control" id="inputPassword" placeholder="Pincode">
-                        </div>                          
-                    </div>
-                </div>
-            </div>    
-                {{!-- <div class="row">
-                        <label for="inputPassword" class="col-sm-2 col-form-label">Address</label>                                                
-                        <div class="col">
-                        <input type="text" class="form-control" placeholder="House Name">
-                        </div>
-                        <div class="col">
-                        <input type="text" class="form-control" placeholder="Post">
-                        </div>
-                        <div class="col">
-                        <input type="text" class="form-control" placeholder="pin">
-                        </div>                        
-                    </div>
-                     <div class="form-group col-12 col-md-6">
-                        <label for="po">Post</label>
-                        <input type="text" class="form-control" name="po" id="po" placeholder="Post">
-                    </div>
-
-                    <div class="form-group col-12 col-md-6">
-                        <label for="pin">Pincode</label>
-                        <input type="text" class="form-control" name="pin" id="pin" placeholder="Pincode">
-                    </div>                      
-                </div> --}}
-
-                
-
-
                 <button type="submit" class="btn btn-primary">Submit</button>
-                <button type="reset" class="btn btn-danger">Reset &nbsp;</button>
+                <button type="reset" class="btn outline-danger">Reset &nbsp;</button>
 
             </form>
         </div>
