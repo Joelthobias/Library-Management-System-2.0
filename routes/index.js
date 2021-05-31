@@ -120,5 +120,9 @@ router.post('/add-membs',(req,res)=>{
     res.redirect('/add-membs')
   })
 }),
+router.get('/view-member/:id',(req,res)=>{
+  let id=req.params.id
+  res.render('member/view-member',{id})
+})
 
 module.exports = router;
