@@ -3,7 +3,9 @@ var router = express.Router();
 var base64=require('image-to-base64');
 var fs=require('fs')
 const bookHelpers = require('../helpers/book-helpers');
-var bookhelper=require('../helpers/book-helpers')
+const memberHelpers=require('../helpers/member-helpers')
+
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
@@ -99,14 +101,24 @@ router.post('/edt-book/:id',(req,res)=>{
           console.log(err);
         }
     })
+}),
+
+router.get('/view-membs',(req,res)=>{
+  memberHelpers.viewmembers().then((members)=>{
+    res.render('member/view-members',{members})
+    // res.send('hi')
+  })
 })
 
 router.get('/add-membs',(req,res)=>{
   res.render('member/add-member')
-})
+}),
 
 router.post('/add-membs',(req,res)=>{
-  
-})
+  let data=req.body
+  memberHelpers.addmember(data).then(()=>{
+    res.redirect('/add-membs')
+  })
+}),
 
 module.exports = router;
