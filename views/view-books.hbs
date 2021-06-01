@@ -2,23 +2,23 @@
     <table class="table table-borderless  table-hover table-responsive">
     <thead>
         <tr>
-        <th scope="col">#</th>
+        <th class="d-md-bl" scope="col">#</th>
         <th scope="col">Book Name</th>
         <th scope="col">Author Name</th>
-        <th scope="col">Price</th>
-        <th scope="col">Date of Publiction</th>
-        <th scope="col">Language</th>
+        <th  class="d-md-bl" scope="col">Price</th>
+        <th class="d-md-bl" scope="col">Date of Publiction</th>
+        <th class="d-s-bl" scope="col">Language</th>
         </tr>
     </thead>
     <tbody>
         {{#each book}}
         <tr onclick="window.location.href='/view-book/{{_id}}'">
-            <th scope="row">{{inc @index}} </th>
-            <td>{{this.bk_name}}</td>
+            <th  class="d-md-bl" scope="row">{{inc @index}} </th>
+            <td >{{this.bk_name}}</td>
             <td>{{this.au_name}}</td>
-            <td>{{this.price}}</td>
-            <td>{{this.dop}}</td>
-            <td>{{this.lg}} </td>
+            <td class="d-md-bl">{{this.price}}</td>
+            <td class="d-md-bl">{{this.dop}}</td>
+            <td class="d-s-bl">{{this.lg}} </td>
         </tr>
         {{/each}}
     </tbody>

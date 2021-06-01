@@ -122,7 +122,11 @@ router.post('/add-membs',(req,res)=>{
 }),
 router.get('/view-member/:id',(req,res)=>{
   let id=req.params.id
-  res.render('member/view-member',{id})
+  memberHelpers.viewmember(id).then((member)=>{
+    console.log(member);
+    res.render('member/view-member',{member})
+  })
+  
 })
 
 module.exports = router;

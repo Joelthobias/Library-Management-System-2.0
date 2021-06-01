@@ -1,1 +1,55 @@
-{{id}}
+
+<section>
+    <div class="row container-fluid">
+        <div class="col-lg-6 b-r">
+            <h3 class="text-center ">
+                Profile
+                <hr class="pro">
+            </h3>
+            <table class="table hi table-borderless">
+                <tbody>
+                        <tr>
+                            <th scope="row">Name</th>
+                            <td>{{member.name}}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Age</th>
+                            <td>{{member.age}}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Gender</th>
+                            <td>{{member.gen}}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Mobile</th>
+                            <td>{{member.mob}}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Date of Admission</th>
+                            <td>{{member.doa}}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Recommented By</th>
+                            <td>{{member.rb}}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Adress</th>
+                            <td>{{member.hn}} <br>
+                                {{member.po}} <br>
+                                {{member.pin}}</td>
+                        </tr>                                   
+                </tbody>
+            </table>            
+        </div>
+        <div class="col-lg-6">
+            <h3 class="text-center ">
+                Books Taken
+                <hr class="pro">
+            </h3>
+            {{#if bk}} 
+            {{else}}
+            <h6 class="mt-5 pt-3 text-center">No books had taken yet </h6> 
+            {{/if}}          
+        </div>
+    </div>
+</section>
