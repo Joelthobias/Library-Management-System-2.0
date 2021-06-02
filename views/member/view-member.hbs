@@ -29,15 +29,15 @@
                             <td>{{member.doa}}</td>
                         </tr>
                         <tr>
-                            <th scope="row">Recommented By</th>
-                            <td>{{member.rb}}</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Adress</th>
+                            <th scope="row">Address</th>
                             <td>{{member.hn}} <br>
                                 {{member.po}} <br>
                                 {{member.pin}}</td>
-                        </tr>                                   
+                        </tr>                         
+                        <tr>
+                            <th scope="row">Recommented By</th>
+                            <td ><a href="/view-member/{{member.rb}}">{{member.rb}}</a> </td>
+                        </tr>                                  
                 </tbody>
             </table>            
         </div>

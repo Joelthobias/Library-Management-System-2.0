@@ -14,8 +14,8 @@
     </thead>
     <tbody>
         {{#each members}}
-        <tr onclick="window.location.href='/view-member/{{this._id}}'">
-            <th scope="row">{{inc @index}} </th>
+        <tr onclick="window.location.href='/view-member/{{this.id}}'">
+            <th scope="row">{{this.id}} </th>
             <td>{{this.name}}</td>
             <td class="d-lg-bl">{{this.gen}} </td>
             <td class="d-xs-bl">{{this.age}}</td>

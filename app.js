@@ -15,7 +15,7 @@ app.set('view engine', 'hbs');
 app.engine('hbs', hbs({
     helpers: {
         inc: function (value, options) {
-            return parseInt(value) + 1;
+            return parseInt(value) + 101;
         }
     },
     extname: 'hbs',

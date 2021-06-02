@@ -104,24 +104,34 @@ router.post('/edt-book/:id',(req,res)=>{
 }),
 
 router.get('/view-membs',(req,res)=>{
-  memberHelpers.viewmembers().then((members)=>{
-    res.render('member/view-members',{members})
-    // res.send('hi')
-  })
-})
+
+      memberHelpers.viewmembers().then((members)=>{
+        res.render('member/view-members',{members})
+        // console.log(members);
+        // res.send('hi')
+      })
+  
+
+}),
 
 router.get('/add-membs',(req,res)=>{
-  res.render('member/add-member')
+memberHelpers.getmembercount().then((count) => {
+    let counts = count + 101
+    res.render('member/add-member',{counts})
+
+})
 }),
 
 router.post('/add-membs',(req,res)=>{
   let data=req.body
+  console.log(data);
   memberHelpers.addmember(data).then(()=>{
     res.redirect('/add-membs')
   })
 }),
 router.get('/view-member/:id',(req,res)=>{
   let id=req.params.id
+  memberHelpers
   memberHelpers.viewmember(id).then((member)=>{
     console.log(member);
     res.render('member/view-member',{member})
