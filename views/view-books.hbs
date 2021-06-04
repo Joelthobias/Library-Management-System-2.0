@@ -12,7 +12,7 @@
     </thead>
     <tbody>
         {{#each book}}
-        <tr onclick="window.location.href='/view-book/{{_id}}'">
+        <tr onclick="window.location.href='/view-book/{{this.id}}'">
             <th  class="d-md-bl" scope="row">{{inc @index}} </th>
             <td >{{this.bk_name}}</td>
             <td>{{this.au_name}}</td>

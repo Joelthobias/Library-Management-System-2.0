@@ -3,7 +3,8 @@ var db=require('../config/connection')
 var ObjectId = require("mongodb").ObjectID;
 module.exports={
     addbook:(book,callback)=>{
-         book.price=parseInt(book.price)
+        book.id=parseInt(book.id)
+        book.price=parseInt(book.price)
         db.get().collection("book").insertOne(book).then((data)=>{
             callback(true)
         })
@@ -16,7 +17,7 @@ module.exports={
     },
     viewbook:(id)=>{
         return new Promise(async(resolve,reject)=>{
-            let book=await db.get().collection('book').findOne({_id:ObjectId(id)})
+            let book=await db.get().collection('book').findOne({id:id})
             resolve(book)
         })
     },
@@ -53,4 +54,12 @@ module.exports={
         });
     });
   },
+    getbookrcount: () => {
+        return new Promise(async (resolve, reject) => {
+        let cart = 0;
+        cart = await db.get().collection('book').countDocuments();
+        console.log(cart);
+        resolve(cart)
+        });
+  },      
 }

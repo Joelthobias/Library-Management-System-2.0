@@ -12,8 +12,14 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/add-book',(req,res)=>{
-  res.render('add-book')
+  bookHelpers.getbookcount().then((count) => {
+    let counts = count + 1001
+    res.render('add-bookr',{counts})
+
 })
+})
+
+
 router.post('/add-book',(req,res) => {
     let image=req.files.img
     let name = req.files.img.name
