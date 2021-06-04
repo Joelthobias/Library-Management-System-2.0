@@ -17,13 +17,15 @@ module.exports={
     },
     viewbook:(id)=>{
         return new Promise(async(resolve,reject)=>{
+            id=parseInt(id)
             let book=await db.get().collection('book').findOne({id:id})
             resolve(book)
         })
     },
     deletebook:(id)=>{
         return new Promise(async(resolve,reject)=>{
-            db.get().collection('book').deleteOne({_id:ObjectId(id)}).then(()=>{
+            id=parseInt(id)
+            db.get().collection('book').deleteOne({id:id}).then(()=>{
                 resolve(true)
             })
         })        
