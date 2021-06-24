@@ -14,8 +14,9 @@
                         </div>
                         <div class="form-group row">
                             <label for="rb" class="col-sm-2 col-form-label">Recommented by</label>
-                            <div class="col-sm-10">
-                                <input type="number" required minlength="3" maxlength="3"  class="form-control" id="rb" name="rb" placeholder="Member ID">
+                            <div class="col-sm-10" style="display: flex;">
+                                <input type="text" required minlength="3" maxlength="3"  class="form-control col-7" id="rb" name="rb" placeholder="name">
+                                <input type="number" required minlength="3" maxlength="3"  class="form-control col-4 ml-3 ml-sm-auto" id="rb" name="rb_id" placeholder="id">
                             </div>
                         </div>
                         <div class="form-group row">
@@ -26,12 +27,12 @@
                         </div>
                         <div class="form-group row">
                             <label for="age" class="col-2 col-form-label">Age</label>
-                            <div class="col-2 ">
+                            <div class="col-3 ">
                                 <input type="text" required class="form-control" id="age" name="age" placeholder="Age">
                             </div>
 
                             <label for="gen" class="col-2 ml-5 col-form-label">Gender</label>
-                            <div class="col-2">
+                            <div class="col-3">
                                 <input type="text" required class="form-control" id="gen" name="gen" placeholder="Gender">
                             </div>
                         </div>

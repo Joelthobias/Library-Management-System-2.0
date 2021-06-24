@@ -8,7 +8,11 @@ const memberHelpers=require('../helpers/member-helpers')
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  bookHelpers.getbookcount().then((count)=>{
+    console.log(count);
+    res.render('index',{count});    
+  })
+
 });
 
 router.get('/add-book',(req,res)=>{

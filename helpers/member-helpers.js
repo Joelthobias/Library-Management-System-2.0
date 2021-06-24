@@ -4,7 +4,7 @@ module.exports={
     
     addmember:(data)=>{
         data.id=parseInt(data.id)
-        data.rb=parseInt(data.rb)
+        data.rb_id=parseInt(data.rb_id)
 
         return new Promise(async(resolve,reject)=>{
             db.get().collection('members').insertOne(data).then(()=>{

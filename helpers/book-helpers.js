@@ -56,7 +56,7 @@ module.exports={
         });
     });
   },
-    getbookrcount: () => {
+    getbookcount: () => {
         return new Promise(async (resolve, reject) => {
         let cart = 0;
         cart = await db.get().collection('book').countDocuments();
