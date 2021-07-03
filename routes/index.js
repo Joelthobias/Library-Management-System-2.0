@@ -18,7 +18,7 @@ router.get('/', function(req, res, next) {
 router.get('/add-book',(req,res)=>{
   bookHelpers.getbookcount().then((count) => {
     let counts = count + 1001
-    res.render('add-bookr',{counts})
+    res.render('add-book',{counts})
 
 })
 })
@@ -141,12 +141,36 @@ router.post('/add-membs',(req,res)=>{
 }),
 router.get('/view-member/:id',(req,res)=>{
   let id=req.params.id
-  memberHelpers
+
   memberHelpers.viewmember(id).then((member)=>{
-    console.log(member);
-    res.render('member/view-member',{member})
+    
+    bookHelpers.findrend(id).then((result)=>{
+      console.log(result._id);
+
+          res.render('member/view-member',{member,result})
+          
+    })
+    
   })
   
 })
-
+router.get('/get-member/:id',(req,res)=>{
+  let id=req.params.id
+  
+  memberHelpers.view(id).then((member)=>{
+    res.json({member})
+  })
+})
+router.get('/rend-book/:id',(req,res)=>{
+let id=req.params.id
+  bookHelpers.viewbook(id).then((result)=>{
+    res.render('rend-book',{result})
+  })
+})
+router.post('/rend-book',(req,res)=>{
+  let data=req.body
+  bookHelpers.rendbook(data).then(()=>{ 
+    res.send(data)    
+  })
+})
 module.exports = router;

@@ -63,5 +63,21 @@ module.exports={
         console.log(cart);
         resolve(cart)
         });
-  },      
+  },
+  rendbook:(body)=>{
+    return new Promise ((resolve,reject)=>{
+      db.get().collection('rendbook').insertOne(body).then(()=>{
+      console.log(body);
+      resolve(true)
+      })
+
+    })
+  },
+  findrend:(id)=>{
+    return new Promise (async(resolve,reject)=>{
+      let rend=await db.get().collection('rendbook').find({mem_id:id}).toArray()
+      resolve(rend)
+      
+    })
+  }      
 }

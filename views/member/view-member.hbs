@@ -46,7 +46,30 @@
                 Books Taken
                 <hr class="pro">
             </h3>
-            {{#if bk}} 
+            {{#if result}} 
+            <table class="table hi table-borderless">
+                <tbody>
+                        <tr>
+                            <th scope="row" class="tt">Book Id</th>
+                            <th scope="row" class="tt">Date</th>
+                            <th scope="row" class="tt">Status</th>
+                            
+                        </tr>
+                    {{#each result}}
+                        <tr>
+                            <td>   
+                                <a href="/view-book/{{this.bk_id}}">{{this.bk_id}}</a>
+                            </td>
+                            <td>   
+                               {{this.dt}}
+                            </td>
+                            <td>   
+                               {{this.status}}
+                            </td>
+                        </tr>                                               
+                    {{/each}}
+                </tbody>
+            </table>
             {{else}}
             <h6 class="mt-5 pt-3 text-center">No books had taken yet </h6> 
             {{/if}}          

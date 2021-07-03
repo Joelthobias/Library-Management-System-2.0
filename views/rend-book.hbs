@@ -1,0 +1,134 @@
+<section class="container">
+<h3>
+    #00001
+</h3>
+
+
+    <div class="row">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <div class="col-md-6">
+            <table class="table table-borderless">
+                <tbody>
+                    <tr>
+                        <td>Book id</td>
+                        <td></td>
+                        <td>{{result.id}}</td>
+                    </tr>
+                    <tr>
+                        <td>Book Name</td>
+                        <td></td>
+                        <td>{{result.bk_name}}</td>
+                    </tr>
+                    <tr>
+                        <td>Author Name</td>
+                        <td></td>
+                        <td>{{result.au_name}}</td>
+                    </tr>
+                    <tr>
+                        <td>Language</td>
+                        <td></td>
+                        <td>{{result.lg}}</td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-6" id="form">
+            <form id="myform"  >
+                <label for="memberid">Member Id :
+                    <input id="mem" class="ml-3" type="text" placeholder="Enter member id">
+                </label>
+                <button type="submit" class="btn btn-primary ml-2 submit">Submit</button>            
+            </form>
+        </div>
+        <div id="jjj" class="membs col-md-5"  style="display: none;">
+            <table  class="table table-borderless">
+                <tbody>
+                    <tr>
+                        <td>member id</td>
+                        <td></td>
+                        <td><input disabled type="text " id="a" value=""></td>
+                    </tr>
+                    <tr>
+                        <td>member Name</td>
+                        <td></td>
+                        <td><input disabled type="text " id="b" value=""></td>
+                    </tr>
+                    <tr>
+                        <td>mobile</td>
+                        <td></td>
+                        <td><input disabled type="text " id="c" value=""> </td>
+                    </tr>
+                    <tr>
+                        <td>Date</td>
+                        <td></td>
+                        <td > <input disabled type="text " id="d" value=""></td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+            <form action="/rend-book" method="post">
+            <input type="text" value="" id="aaaa" name="mem_id" class="no">
+            <input type="text" value="{{result.id}}" name="bk_id" class="no">
+            <input type="text" id="aaa" class="no" value="" name="dt">            
+            <input type="text" id="aaa" class="no" value="given" name="status">            
+            <button type="submit" class="col-12 btn btn-primary">Rend</button>
+            </form>
+            
+        </div>
+    </div>
+    
+</section>
+
+<style>
+.cen {
+    max-height: 350px;
+
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 30%;
+}
+input:disabled{
+    border: none
+}
+.no{
+    display: none;
+}
+</style>
+<script>
+ 
+
+     
+$("#myform").submit((e)=>{
+    var id=document.getElementById('mem').value
+     console.log(id)
+    e.preventDefault()
+    $.ajax({
+
+        url: "/get-member/" + id,
+        method: "get",
+        
+        success:(response)=>{
+            
+        if(response.member){
+
+            console.log(response.member)
+            document.getElementById('jjj').style.display="block";
+            document.getElementById('form').style.display="none";
+            document.getElementById('a').value=response.member.id;
+            document.getElementById('b').value=response.member.name ;
+            document.getElementById('c').value=response.member.mob;
+            let date=new Date
+            let mm=date.getMonth()
+            let dd=date.getDate()
+            let yy=date.getFullYear()
+            let Dd=yy +"-" + mm +"-"  + dd
+            document.getElementById('d').value=Dd
+            document.getElementById('aaa').value=Dd
+            document.getElementById('aaaa').value=response.member.id;
+        }
+        }
+    })
+})
+</script>

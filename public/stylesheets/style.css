@@ -34,9 +34,13 @@
     border-right: 2px solid;
 }
 }
- .hi td{
+ .hi td {
      text-align: center;
  }
+ .tt{
+     text-align: center !important;
+ }
+ 
  .pro{
     width: 10%;
     border-top: 1px solid rgba(6, 6, 6, 0.75);

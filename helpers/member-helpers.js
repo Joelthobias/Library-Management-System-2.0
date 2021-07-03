@@ -26,6 +26,14 @@ module.exports={
             console.log(member);
         })  
     },
+    view:(id)=>{
+        return new Promise(async(resolve,reject)=>{
+            id=parseInt(id)
+            let member=await db.get().collection('members').findOne({id:id})
+            resolve(member);
+            console.log(member);
+        })  
+    },    
     getmembercount: () => {
         return new Promise(async (resolve, reject) => {
         let cart = 0;
