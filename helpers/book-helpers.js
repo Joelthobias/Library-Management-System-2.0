@@ -65,6 +65,8 @@ module.exports={
         });
   },
   rendbook:(body)=>{
+    body.yy=parseInt(body.yy)
+    body.mm=parseInt(body.mm)
     return new Promise ((resolve,reject)=>{
       db.get().collection('rendbook').insertOne(body).then(()=>{
       console.log(body);

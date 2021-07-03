@@ -45,7 +45,7 @@ module.exports={
   getallrend:()=>{
       return new Promise(async(resolve,reject)=>{
           let rend=null
-          rend=await db.get().collection('rendbook').find().toArray()
+          rend=await db.get().collection('rendbook').find().sort({"id":1}).toArray()
           resolve(rend)
       }) 
   }

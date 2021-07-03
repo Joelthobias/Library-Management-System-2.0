@@ -71,7 +71,9 @@
             <input type="text" value="" id="aaaa" name="mem_id" class="no">
             <input type="text" value="{{result.id}}" name="bk_id" class="no">
             <input type="text" id="aaa" class="no" value="" name="dt">            
-            <input type="text" id="aaa" class="no" value="given" name="status">            
+            <input type="text" id="aaa" class="no" value="given" name="status">
+            <input type="text" name="mm" class="no" id="mm">
+            <input type="text" name="yy" class="no" id="yy">            
             <button type="submit" class="col-12 btn btn-primary">Rend</button>
             </form>
             
@@ -127,6 +129,8 @@ $("#myform").submit((e)=>{
             document.getElementById('d').value=Dd
             document.getElementById('aaa').value=Dd
             document.getElementById('aaaa').value=response.member.id;
+            document.getElementById('mm').value=mm
+            document.getElementById('yy').value=yy
         }
         }
     })

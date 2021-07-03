@@ -177,7 +177,7 @@ router.post('/rend-book',(req,res)=>{
 })
 router.get('/rend',(req,res)=>{
   memberHelpers.getallrend().then((rend)=>{
-    res.render('rend',{rend})
+    res.render('member/rend',{rend})
   })
 })
 module.exports = router;
