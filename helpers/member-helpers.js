@@ -42,5 +42,12 @@ module.exports={
         resolve(cart)
         });
   },    
+  getallrend:()=>{
+      return new Promise(async(resolve,reject)=>{
+          let rend=null
+          rend=await db.get().collection('rendbook').find().toArray()
+          resolve(rend)
+      }) 
+  }
 
 }

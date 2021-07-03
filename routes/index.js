@@ -170,7 +170,14 @@ let id=req.params.id
 router.post('/rend-book',(req,res)=>{
   let data=req.body
   bookHelpers.rendbook(data).then(()=>{ 
-    res.send(data)    
+    let loc=data.mem_id
+    let ads='/view-member/'+loc
+    res.redirect(ads)
+  })
+})
+router.get('/rend',(req,res)=>{
+  memberHelpers.getallrend().then((rend)=>{
+    res.render('rend',{rend})
   })
 })
 module.exports = router;
