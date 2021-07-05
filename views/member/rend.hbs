@@ -10,21 +10,32 @@
                 <th>Member Id</th>
                 <th>Member Name</th>
                 <th>Date</th>                
+                <th>Status</th>                
             </tr>
         </thead>
         <tbody>
             {{#each rend}}
-            <tr>
-                <td>{{this.id}}</td>
+            {{#if this.status}}
+            <tr id="{{this._id}} " >
+                <td>{{this.sl}} </td>
+                
                 <td>{{this.bk_id}}</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td>{{this.bk_nm}}</td>
+                <td>{{this.au_name}}</td>
+                <td>{{this.gen}}</td>
+                <td>{{this.mem_id}}</td>
+                <td>{{this.mn}}</td>
+                <td>{{this.dt}} </td>
+                <td>{{this.status}} </td>
             </tr>            
+            {{/if}}
             {{/each}}
         </tbody>
     </table>
 </section>
+<script>
+    function bg(id){
+        console.log(id)
+
+    }
+</script>

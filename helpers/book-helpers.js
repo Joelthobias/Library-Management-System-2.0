@@ -66,7 +66,14 @@ module.exports={
   },
   rendbook:(body)=>{
     body.yy=parseInt(body.yy)
-    body.mm=parseInt(body.mm)
+    if(body.mm<10){
+      body.mm='0'+body.mm
+      
+
+    }
+    body.sl=body.yy+''+ body.mm +'' +'01'
+    body.sl=parseInt(body.sl)
+
     return new Promise ((resolve,reject)=>{
       db.get().collection('rendbook').insertOne(body).then(()=>{
       console.log(body);

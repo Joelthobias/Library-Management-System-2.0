@@ -177,6 +177,14 @@ router.post('/rend-book',(req,res)=>{
 })
 router.get('/rend',(req,res)=>{
   memberHelpers.getallrend().then((rend)=>{
+    // bookHelpers.viewbook()
+    // let bg='white'
+    // if(rend.status==='given'){
+    //    bg='red'
+    // }
+    // else{
+    //    bg='green'
+    // }
     res.render('member/rend',{rend})
   })
 })

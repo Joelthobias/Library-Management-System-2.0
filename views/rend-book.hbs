@@ -70,10 +70,15 @@
             <form action="/rend-book" method="post">
             <input type="text" value="" id="aaaa" name="mem_id" class="no">
             <input type="text" value="{{result.id}}" name="bk_id" class="no">
+            <input type="text" value="{{result.au_name}}" name="au_name" class="no">
+            <input type="text" value="{{result.cat}}" name="gen" class="no">
+            <input type="text" value="{{result.lg}}" name="lg" class="no">
+            <input type="text" value="{{result.bk_name}}" name="bk_nm" class="no">
             <input type="text" id="aaa" class="no" value="" name="dt">            
             <input type="text" id="aaa" class="no" value="given" name="status">
             <input type="text" name="mm" class="no" id="mm">
-            <input type="text" name="yy" class="no" id="yy">            
+            <input type="text" name="yy" class="no" id="yy">   
+            <input type="text" name="mn" class="no" id="mn">         
             <button type="submit" class="col-12 btn btn-primary">Rend</button>
             </form>
             
@@ -119,18 +124,20 @@ $("#myform").submit((e)=>{
             document.getElementById('jjj').style.display="block";
             document.getElementById('form').style.display="none";
             document.getElementById('a').value=response.member.id;
-            document.getElementById('b').value=response.member.name ;
+            document.getElementById('b').value=response.member.name;
             document.getElementById('c').value=response.member.mob;
             let date=new Date
             let mm=date.getMonth()
             let dd=date.getDate()
             let yy=date.getFullYear()
-            let Dd=yy +"-" + mm +"-"  + dd
+            let Dd=dd +"-" + mm +"-"  + yy
             document.getElementById('d').value=Dd
             document.getElementById('aaa').value=Dd
             document.getElementById('aaaa').value=response.member.id;
             document.getElementById('mm').value=mm
             document.getElementById('yy').value=yy
+            document.getElementById('mn').value=response.member.name;
+            
         }
         }
     })
