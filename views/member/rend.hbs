@@ -1,3 +1,21 @@
+<div align="center" class="cen" >
+    <p class="red"></p> 
+    <p>Given Book</p>
+
+</div>
+<div align="center" class="cen">
+
+    <p class="green"></p>
+    <P>Returned Book</P>
+</div>
+
+<div align="center" class="cen">
+
+    <p class="fas fa-exchange-alt"></p>
+    <P>Click This icon For Returning The book</P>
+</div>
+
+
 <section class="container">
     <table class="table">
         <thead>
@@ -10,15 +28,17 @@
                 <th>Member Id</th>
                 <th>Member Name</th>
                 <th>Date</th>                
-                <th>Status</th>                
+                {{!-- <th>Status</th>                 --}}
             </tr>
         </thead>
-        <tbody>
+        <tbody style="color: #fff;">
             {{#each rend}}
-            {{#if this.status}}
-            <tr id="{{this._id}} " >
-                <td>{{this.sl}} </td>
-                
+                {{#if status}}
+                <tr id="{{this._id}} " style="background-color: rgb(145, 207, 145);">
+                {{else}}
+                <tr id="{{this._id}} " style="background-color: rgb(253, 116, 116)">
+                {{/if}}
+                <td>{{this.sl}} </td>                
                 <td>{{this.bk_id}}</td>
                 <td>{{this.bk_nm}}</td>
                 <td>{{this.au_name}}</td>
@@ -26,16 +46,22 @@
                 <td>{{this.mem_id}}</td>
                 <td>{{this.mn}}</td>
                 <td>{{this.dt}} </td>
-                <td>{{this.status}} </td>
+                <td onclick="ret('{{this._id}}')"><span class="fas fa-exchange-alt "></span> </td>
             </tr>            
-            {{/if}}
+ 
             {{/each}}
         </tbody>
     </table>
 </section>
 <script>
-    function bg(id){
-        console.log(id)
-
+    function ret(id){
+       var con= confirm('are You Sure' + id)
+       var di=id + ""
+       
+       console.log(di)
+       if(con==true){
+           document.getElementById(di).style.backgroundColor="rgb(145, 207, 145)";
+       }
     }
+
 </script>

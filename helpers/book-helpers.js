@@ -66,6 +66,7 @@ module.exports={
   },
   rendbook:(body)=>{
     body.yy=parseInt(body.yy)
+    body.status=false
     if(body.mm<10){
       body.mm='0'+body.mm
       
