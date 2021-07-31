@@ -46,7 +46,11 @@
                 <td>{{this.mem_id}}</td>
                 <td>{{this.mn}}</td>
                 <td>{{this.dt}} </td>
-                <td onclick="myFunction('{{this._id}}')" id="id" ><span class="fas fa-exchange-alt "></span> </td>
+                {{#if status}}
+                
+                {{else}}
+                    <td onclick="myFunction('{{this._id}}')" id="id" ><span class="fas fa-exchange-alt "></span> </td>
+                {{/if}}
             </tr>            
  
             {{/each}}
@@ -57,7 +61,7 @@
 
     function myFunction(id){
         var txt;
-        var r = confirm("Press a button!");
+        var r = confirm("Are You sure to Return Book");
         if (r == true) {
             
             window.location.assign('/return-book/' + id)
