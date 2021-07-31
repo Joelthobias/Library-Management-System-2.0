@@ -48,6 +48,18 @@ module.exports={
           rend=await db.get().collection('rendbook').find().sort({"sl":-1}).toArray()
           resolve(rend)
       }) 
+  },
+  returnbook:(id)=>{
+      return new Promise(async(resolve,reject)=>{
+          db.get().collection('rendbook').updateOne({_id:ObjectId(id)},
+          {
+              $set:{
+                  status:true
+              }
+            })
+        resolve(true)
+      })
+
   }
 
 }

@@ -188,4 +188,11 @@ router.get('/rend',(req,res)=>{
     res.render('member/rend',{rend})
   })
 })
+router.get('/return-book/:id',(req,res)=>{
+  let id=req.params.id
+  memberHelpers.returnbook(id).then(()=>{
+    res.redirect('/rend')
+  })
+})
+
 module.exports = router;

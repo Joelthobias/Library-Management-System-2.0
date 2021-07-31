@@ -16,7 +16,7 @@
 </div>
 
 
-<section class="container">
+<section  class="container">
     <table class="table">
         <thead>
             <tr>
@@ -31,10 +31,10 @@
                 {{!-- <th>Status</th>                 --}}
             </tr>
         </thead>
-        <tbody style="color: #fff;">
+        <tbody  style="color: #fff;">
             {{#each rend}}
                 {{#if status}}
-                <tr id="{{this._id}} " style="background-color: rgb(145, 207, 145);">
+                <tr id="{{this._id}} "  style="background-color: rgb(145, 207, 145);">
                 {{else}}
                 <tr id="{{this._id}} " style="background-color: rgb(253, 116, 116)">
                 {{/if}}
@@ -46,7 +46,7 @@
                 <td>{{this.mem_id}}</td>
                 <td>{{this.mn}}</td>
                 <td>{{this.dt}} </td>
-                <td onclick="ret('{{this._id}}')"><span class="fas fa-exchange-alt "></span> </td>
+                <td onclick="myFunction('{{this._id}}')" id="id" ><span class="fas fa-exchange-alt "></span> </td>
             </tr>            
  
             {{/each}}
@@ -54,14 +54,18 @@
     </table>
 </section>
 <script>
-    function ret(id){
-       var con= confirm('are You Sure' + id)
-       var di=id + ""
-       
-       console.log(di)
-       if(con==true){
-           document.getElementById(di).style.backgroundColor="rgb(145, 207, 145)";
-       }
+
+    function myFunction(id){
+        var txt;
+        var r = confirm("Press a button!");
+        if (r == true) {
+            
+            window.location.assign('/return-book/' + id)
+        } else {
+            tx
+        }
+        
     }
+</script>
 
 </script>
