@@ -1,0 +1,20 @@
+book={
+    bk_id:
+    title:
+    author:
+    yop: 
+    price: 
+    pub: 
+}
+member={
+    m_id:1001,
+    name:"joel",
+    mob:9633428835,
+    clg_id:2101131282
+}
+bTaken[{
+        bk_id:
+        Bdate:
+        Rdate:
+        fine:
+    }]

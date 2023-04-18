@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-md-6">
             <div class="cover">
-                <img src="data:image/png;base64,{{result.img}}" alt="" class="cen img-fluid">
+                <img alt="COver image of book" src="data:image/png;base64,{{result.img}}" alt="" class="cen img-fluid">
             <div class="row d-none d-md-flex d-lg-none m-3">
                 <button type="button" onclick="window.location.href='/edit-book/{{result._id}}'"  class="col-12   my-2 btn btn-primary">Edit</button>
                 <button type="button" onclick="window.location.href='/del-book/{{result._id}}'"  class="col-12 my-2 btn btn-outline-danger">Delete</button>
@@ -13,40 +13,33 @@
             <table class="table table-borderless">
             <tbody>
                 <tr>
+                    <td>Book id</td>
+                    <td></td>
+                    <td>{{result.bk_id}}</td>
+                </tr>
+                <tr>
                     <td>Book Name</td>
                     <td></td>
-                    <td>{{result.bk_name}}</td>
+                    <td>{{result.title}}</td>
                 </tr>
                                 <tr>
                     <td>Author Name</td>
                     <td></td>
-                    <td>{{result.au_name}}</td>
+                    <td>{{result.author}}</td>
                 </tr>
-                <tr>
-                    <td>Language</td>
-                    <td></td>
-                    <td>{{result.lg}}</td>
-                </tr>
+
                 <tr>
                     <td>price</td>
                     <td></td>
                     <td>{{result.price}}</td>
                 </tr>
                 <tr>
-                    <td>Date of Publication</td>
+                    <td>Year of Publication</td>
                     <td></td>
-                    <td>{{result.dop}}</td>
+                    <td>{{result.yop}}</td>
                 </tr>
-                <tr>
-                    <td>category</td>
-                    <td></td>
-                    <td>{{result.cat}}</td>
-                </tr>
-                <tr>
-                    <td>Number of Pages</td>
-                    <td></td>
-                    <td>{{result.nop}}</td>
-                </tr>                
+
+              
                 <tr>
                     <td>Publishers</td>
                     <td></td>
@@ -55,9 +48,9 @@
             </tbody>
             </table> 
             <div class="align-items-center d-md-none d-lg-block">
-                <button onclick="window.location.href='/edit-book/{{result.id}}'" type="button" class="col-6   mx-auto btn btn-primary">Edit</button>
-                <button onclick="window.location.href='/del-book/{{result.id}}'" type="button" class="col-5 mx-auto btn btn-outline-danger">Delete</button>
-                <button onclick="window.location.href='/rend-book/{{result.id}}'" type="button" class="col-5 mx-auto btn btn-outline-green">rend</button>
+                <button onclick="window.location.href='/edit-book/{{result.bk_id}}'" type="button" class="col-6   mx-auto btn btn-primary">Edit</button>
+                <button onclick="window.location.href='/del-book/{{result.bk_id}}'" type="button" class="col-5 mx-auto btn btn-outline-danger">Delete</button>
+                <button onclick="window.location.href='/rend-book/{{result.bk_id}}'" type="button" class="col-5 mx-auto btn btn-outline-green">rend</button>
             </div>           
             
         </div>

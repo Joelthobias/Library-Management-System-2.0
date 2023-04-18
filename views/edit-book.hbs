@@ -1,37 +1,28 @@
 <div class="container">
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-            <form action="/edt-book/{{result._id}}" method="POST"  enctype="multipart/form-data" role="form" >
+            <form action="/edt-book/{{result.bk_id}}" method="POST"  enctype="multipart/form-data" role="form" >
                 {{!-- <legend>Add Book</legend> --}}
-                <h1 class="h3 mb-0 text-gray-800 pb-3" >Add Book</h1>
+                <h1 class="h3 mb-0 text-gray-800 pb-3" >EDIT BOOK</h1>
                 <div class="row">
                 <div class="form-group col-12 col-sm-6 col-md-4">
+                    <label for="nop">BOOK ID</label>
+                    <input type="text" class="form-control" value="{{result.bk_id}} " name="bk_id" id="nop" placeholder="Number of Pages">
+                </div> 
+                <div class="form-group col-12 col-sm-6 col-md-4">
                     <label for="bk_name">Book Name</label>
-                    <input type="text" class="form-control" value="{{result.bk_name}} " name="bk_name" id="bk_name" placeholder="Book Name">
+                    <input type="text" class="form-control" value="{{result.title}} " name="title" id="bk_name" placeholder="Book Name">
                 </div>
 
                 <div class="form-group col-12 col-sm-6 col-md-4">
                     <label for="au_name">Author name</label>
-                    <input type="text" class="form-control" value="{{result.au_name}} " name="au_name" id="au_name" placeholder="Author Name">
+                    <input type="text" class="form-control" value="{{result.author}} " name="author" id="au_name" placeholder="Author Name">
                 </div>
 
-                <div class="form-group col-12 col-sm-6 col-md-4">
-                    <label for="lg">Language</label>
-                    <input type="text" class="form-control" value="{{result.lg}} " name="lg" id="lg" placeholder="Language">
-                </div>
                 <div class="form-group col-12 col-sm-6 col-md-4">
                     <label for="dop">Date of Publishing</label>
-                    <input type="text" class="form-control" value="{{result.dop}} " name="dop" id="dop" placeholder="Date of Publishing">
+                    <input type="text" class="form-control" value="{{result.yop}} " name="yop" id="dop" placeholder="Date of Publishing">
                 </div>
-                <div class="form-group col-12 col-sm-6 col-md-4">
-                    <label for="cat">category</label>
-                    <input type="text" class="form-control" value="{{result.cat}} " name="cat" id="cat" placeholder="category">
-                </div>       
-
-                <div class="form-group col-12 col-sm-6 col-md-4">
-                    <label for="nop">Number of Pages</label>
-                    <input type="text" class="form-control" value="{{result.nop}} " name="nop" id="nop" placeholder="Number of Pages">
-                </div> 
 
                 <div class="form-group col-12 col-sm-6 col-md-4">
                     <label for="price">Price</label>
@@ -43,7 +34,7 @@
                     <input type="text" class="form-control" value="{{result.pub}} " name="pub" id="pub" placeholder="Publishers">
                 </div>
 
-                <div class="form-group col-12 pt-3 col-sm-6 col-md-4">
+                {{!-- <div class="form-group col-12 pt-3 col-sm-6 col-md-4">
 
                     <input type="file" name="img" id="img" class="inputfile inputfile-3" data-multiple-caption="{count} files selected" multiple="">
 					<label for="img">
@@ -51,7 +42,7 @@
                         </svg> 
                         <span>Choose a image…</span>
                     </label>
-                </div>                                    
+                </div>                                     --}}
                 </div>
 
 

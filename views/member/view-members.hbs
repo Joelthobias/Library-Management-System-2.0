@@ -2,31 +2,19 @@
     <table class="table table-borderless col-12 table-hover table-responsive">
     <thead>
         <tr>
-        <th scope="col">#</th>
+        <th scope="col">Memeber ID</th>
         <th scope="col">Name</th>
-        <th scope="col" class="d-lg-bl">Gender</th>
-        <th scope="col" class="d-xs-bl">Age</th>
         <th scope="col">Mobile</th>
-        <th scope="col" class="d-lg-bl">Date of Joining</th>
-        <th scope="col" class=" d-sm-bl">Recommented by</th>
-        <th scope="col" class="d-md-bl">Adress</th>
+        <th scope="col" >College ID</th>
         </tr>
     </thead>
     <tbody>
         {{#each members}}
-        <tr onclick="window.location.href='/view-member/{{this.id}}'">
-            <th scope="row">{{this.id}} </th>
+        <tr onclick="window.location.href='/view-member/{{this.m_id}}'">
+            <th scope="row">{{this.m_id}} </th>
             <td>{{this.name}}</td>
-            <td class="d-lg-bl">{{this.gen}} </td>
-            <td class="d-xs-bl">{{this.age}}</td>
-            <td><a href="tel:+91{{this.mob}}">{{this.mob}}</a></td>
-            <td class="d-lg-bl">{{this.doa}}</td>
-            <td class=" d-sm-bl">{{this.rb}}</td>
-            <td class=" d-md-bl">
-                {{this.hn}} <br>
-                {{this.po}} <br>
-                {{this.pin}}
-            </td>
+            <td class="d-xs-bl">{{this.mob}}</td>
+            <td class="d-lg-bl">{{this.clg_id}}</td>
         </tr>
         {{/each}}
     </tbody>

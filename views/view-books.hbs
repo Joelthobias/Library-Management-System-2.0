@@ -6,19 +6,19 @@
         <th scope="col">Book Name</th>
         <th scope="col">Author Name</th>
         <th  class="d-md-bl" scope="col">Price</th>
-        <th class="d-md-bl" scope="col">Date of Publiction</th>
-        <th class="d-s-bl" scope="col">Language</th>
+        <th class="d-md-bl" scope="col">Year of Publication</th>
+        <th class="d-md-bl" scope="col">Publicatiors</th>
         </tr>
     </thead>
     <tbody>
         {{#each book}}
-        <tr onclick="window.location.href='/view-book/{{this.id}}'">
-            <th  class="d-md-bl" scope="row">{{inc @index}} </th>
-            <td >{{this.bk_name}}</td>
-            <td>{{this.au_name}}</td>
+        <tr onclick="window.location.href='/view-book/{{this.bk_id}}'">
+            <th  class="d-md-bl" scope="row">{{this.bk_id}} </th>
+            <td >{{this.title}}</td>
+            <td>{{this.author}}</td>
             <td class="d-md-bl">{{this.price}}</td>
-            <td class="d-md-bl">{{this.dop}}</td>
-            <td class="d-s-bl">{{this.lg}} </td>
+            <td class="d-md-bl">{{this.yop}}</td>
+            <td class="d-md-bl">{{this.pub}}</td>
         </tr>
         {{/each}}
     </tbody>

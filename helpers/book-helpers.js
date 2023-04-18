@@ -3,7 +3,7 @@ var db=require('../config/connection')
 var ObjectId = require("mongodb").ObjectID;
 module.exports={
     addbook:(book,callback)=>{
-        book.id=parseInt(book.id)
+        book.bk_id=parseInt(book.bk_id)
         book.price=parseInt(book.price)
         db.get().collection("book").insertOne(book).then((data)=>{
             callback(true)
@@ -18,8 +18,9 @@ module.exports={
     viewbook:(id)=>{
         return new Promise(async(resolve,reject)=>{
             id=parseInt(id)
-            let book=await db.get().collection('book').findOne({id:id})
+            let book=await db.get().collection('book').findOne({bk_id:id})
             resolve(book)
+            console.log(id);
         })
     },
     deletebook:(id)=>{
@@ -32,21 +33,19 @@ module.exports={
     },
     updatebook: (id, book) => {
     // let price=parseInt(pro.price)
-    book.price=parseInt(book.price)
+      book.price=parseInt(book.price)
+      book.bk_id=parseInt(book.bk_id)
     return new Promise((resolve, reject) => {
       db.get()
-        .collection('book').updateOne({ _id:ObjectId(id) },
+        .collection('book').updateOne({ bk_id:book.bk_id },
           {
             $set: {
-              bk_name: book.bk_name,
-              au_name: book.au_name,
-              price: book.price,
-              lg: book.lg,
-              dop:book.dop,
-              cat:book.cat,
-              pub:book.pub,
-              img:book.img,
-              nop:book.nop
+              bk_id:book.bk_id,
+              title:book.title,
+              author:book.author,
+              yop:book.yop,
+              price:book.price,
+              pub:book.pub
             },
           }
         )

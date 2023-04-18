@@ -3,37 +3,23 @@
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
             <form action="/add-book" method="POST"  enctype="multipart/form-data" role="form" >
                 {{!-- <legend>Add Book</legend> --}}
-                <input type="hidden" name="id" value="{{counts}}">
+                <input type="text" name="bk_id" value="{{counts}}">
                 <h1 class="h3 mb-0 text-gray-800 pb-3" >Add Book</h1>
                 <div class="row">
                 <div class="form-group col-12 col-sm-6 col-md-4">
                     <label for="bk_name">Book Name</label>
-                    <input type="text" class="form-control" name="bk_name" id="bk_name" placeholder="Book Name">
+                    <input type="text" class="form-control" name="title" id="bk_name" placeholder="Book Name">
                 </div>
 
                 <div class="form-group col-12 col-sm-6 col-md-4">
                     <label for="au_name">Author name</label>
-                    <input type="text" class="form-control" name="au_name" id="au_name" placeholder="Author Name">
-                </div>
+                    <input type="text" class="form-control" name="author" id="au_name" placeholder="Author Name">
+                </div> 
 
                 <div class="form-group col-12 col-sm-6 col-md-4">
-                    <label for="cat">category</label>
-                    <input type="text" class="form-control" name="cat" id="cat" placeholder="category">
-                </div>    
-
-                <div class="form-group col-12 col-sm-6 col-md-4">
-                    <label for="lg">Language</label>
-                    <input type="text" class="form-control" name="lg" id="lg" placeholder="Language">
+                    <label for="dop">Year of Publishing</label>
+                    <input type="number" class="form-control" name="yop" id="dop" placeholder="Year of Publishing">
                 </div>
-                <div class="form-group col-12 col-sm-6 col-md-4">
-                    <label for="dop">Date of Publishing</label>
-                    <input type="date" class="form-control" name="dop" id="dop" placeholder="Date of Publishing">
-                </div>
-   
-                <div class="form-group col-12 col-sm-6 col-md-4">
-                    <label for="nop">Number of Pages</label>
-                    <input type="text" class="form-control" name="nop" id="nop" placeholder="Number of Pages">
-                </div>    
 
                 <div class="form-group col-12 col-sm-6 col-md-4">
                     <label for="price">Price</label>
@@ -45,14 +31,14 @@
                     <input type="text" class="form-control" name="pub" id="pub" placeholder="Publishers">
                 </div>
 
-                <div class="form-group col-12 col-sm-6 pt-4 col-md-4">
+                {{!-- <div class="form-group col-12 col-sm-6 pt-4 col-md-4">
                     <input type="file" name="img" id="img" class="inputfile inputfile-3" data-multiple-caption="{count} files selected" multiple="">
 					<label for="img">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17"><path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"></path>
                         </svg> 
                         <span>Choose a image…</span>
                     </label>
-                </div>                
+                </div>                 --}}
 
                 </div>
                 <div class=" row">

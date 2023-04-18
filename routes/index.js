@@ -25,34 +25,37 @@ router.get('/add-book',(req,res)=>{
 
 
 router.post('/add-book',(req,res) => {
-    let image=req.files.img
-    let name = req.files.img.name
+    // let image=req.files.img
+    // let name = req.files.img.name
 
-  image.mv('./public/img/'+name,(err,done)=>{
-    if(!err){
-      base64("./public/img/"+name).then((response) => {
-            let data =req.body
-            data.img=response
-            bookHelpers.addbook(data,(result)=>{
-              fs.unlink("./public/img/" + name, (err) => {
-                if (err) throw err;
-                console.log("file deleted");
-                });
-              res.redirect('/add-book')
-            })
-        }
-    )
-    .catch(
-        (error) => {
-            console.log(error); // Logs an error if there was one
-        }
-    )
+  // image.mv('./public/img/'+name,(err,done)=>{
+  //   if(!err){
+  //     base64("./public/img/"+name).then((response) => {
+            
+  //           data.img=response
+  //           bookHelpers.addbook(data,(result)=>{
+  //             fs.unlink("./public/img/" + name, (err) => {
+  //               if (err) throw err;
+  //               console.log("file deleted");
+  //               });
+  //             res.redirect('/add-book')
+  //           })
+  //       }
+  //   )
+  //   .catch(
+  //       (error) => {
+  //           console.log(error); // Logs an error if there was one
+  //       }
+  //   )
     
-    }else{
-      console.log(err);
-    }
+  //   }else{
+  //     console.log(err);
+  //   }
+  // })
+  let data =req.body
+  bookHelpers.addbook(data,(result)=>{
+    res.redirect('/add-book')
   })
-
   
 })
 
@@ -87,31 +90,39 @@ router.get('/edit-book/:id',async(req,res)=>{
     
 }),
 
-
 router.post('/edt-book/:id',(req,res)=>{
-    let id=req.params.id
-    let image=req.files.img
-    let name = req.files.img.name
-    image.mv('./public/img/'+name,(err,done)=>{
-        if(!err){
-          base64("./public/img/"+name).then((response) => {
-                let data =req.body
-                data.img=response
-                  bookHelpers.updatebook(id,data).then(()=>{
-                    fs.unlink("./public/img/" + name, (err) => {
-                      if (err) throw err;
-                        console.log("file deleted");
-                    });
-                    res.redirect('/view-books')
-                  })
-          }).catch((error) => {
-                console.log(error); // Logs an error if there was one
-            })
-        }else{
-          console.log(err);
-        }
-    })
-}),
+  let id=req.params.id;
+  let data=req.body
+  bookHelpers.updatebook(id,data).then(()=>{
+    // res.send(data)
+    res.redirect('/view-books');
+  })
+})
+
+// router.post('/edt-book/:id',(req,res)=>{
+//     let id=req.params.id
+//     let image=req.files.img
+//     let name = req.files.img.name
+//     image.mv('./public/img/'+name,(err,done)=>{
+//         if(!err){
+//           base64("./public/img/"+name).then((response) => {
+//                 let data =req.body
+//                 data.img=response
+//                   bookHelpers.updatebook(id,data).then(()=>{
+//                     fs.unlink("./public/img/" + name, (err) => {
+//                       if (err) throw err;
+//                         console.log("file deleted");
+//                     });
+//                     res.redirect('/view-books')
+//                   })
+//           }).catch((error) => {
+//                 console.log(error); // Logs an error if there was one
+//             })
+//         }else{
+//           console.log(err);
+//         }
+//     })
+// }),
 
 router.get('/view-membs',(req,res)=>{
 
@@ -125,11 +136,11 @@ router.get('/view-membs',(req,res)=>{
 }),
 
 router.get('/add-membs',(req,res)=>{
-memberHelpers.getmembercount().then((count) => {
-    let counts = count + 101
-    res.render('member/add-member',{counts})
+  memberHelpers.getmembercount().then((count) => {
+      let counts = count + 1001
+      res.render('member/add-member',{counts})
 
-})
+  })
 }),
 
 router.post('/add-membs',(req,res)=>{
