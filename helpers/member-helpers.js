@@ -3,7 +3,7 @@ var ObjectId = require("mongodb").ObjectID;
 module.exports={
     
     addmember:(data)=>{
-        data.id=parseInt(data.m_id)
+        data.m_id=parseInt(data.m_id)
         data.rb_id=parseInt(data.rb_id)
 
         return new Promise(async(resolve,reject)=>{

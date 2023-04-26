@@ -156,7 +156,7 @@ router.get('/view-member/:id',(req,res)=>{
   memberHelpers.viewmember(id).then((member)=>{
     
     bookHelpers.findrend(id).then((result)=>{
-      console.log(result._id);
+      console.log(result.id);
 
           res.render('member/view-member',{member,result})
           

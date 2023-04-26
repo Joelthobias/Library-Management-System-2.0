@@ -1,48 +1,46 @@
 <section class="container">
-<h3>
-    #00001
-</h3>
-
-
+    <h3>
+        #00001
+    </h3>
     <div class="row">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <div class="col-md-6">
             <table class="table table-borderless">
                 <tbody>
                     <tr>
                         <td>Book id</td>
                         <td></td>
-                        <td>{{result.id}}</td>
+                        <td>{{result.bk_id}}</td>
                     </tr>
                     <tr>
                         <td>Book Name</td>
                         <td></td>
-                        <td>{{result.bk_name}}</td>
+                        <td>{{result.title}}</td>
                     </tr>
                     <tr>
                         <td>Author Name</td>
                         <td></td>
-                        <td>{{result.au_name}}</td>
+                        <td>{{result.author}}</td>
                     </tr>
                     <tr>
-                        <td>Language</td>
+                        <td>Year Of Publication</td>
                         <td></td>
-                        <td>{{result.lg}}</td>
+                        <td>{{result.yop}}</td>
                     </tr>
-                    
+
                 </tbody>
             </table>
         </div>
         <div class="col-md-6" id="form">
-            <form id="myform"  >
+            <form id="myform">
                 <label for="memberid">Member Id :
-                    <input id="mem" class="ml-3" type="text" placeholder="Enter member id">
+                    <input id="m_id" class="ml-3" type="text" placeholder="Enter member id">
                 </label>
-                <button type="submit" class="btn btn-primary ml-2 submit">Submit</button>            
+                <button type="submit" class="btn btn-primary ml-2 submit">Submit</button>
             </form>
         </div>
-        <div id="jjj" class="membs col-md-5"  style="display: none;">
-            <table  class="table table-borderless">
+        <div id="jjj" class="membs col-md-5" style="display: none;">
+            <table class="table table-borderless">
                 <tbody>
                     <tr>
                         <td>member id</td>
@@ -57,89 +55,87 @@
                     <tr>
                         <td>mobile</td>
                         <td></td>
-                        <td><input disabled type="text " id="c" value=""> </td>
+                        <td><input disabled type="text " id="c" value="">
+                        </td>
                     </tr>
                     <tr>
                         <td>Date</td>
                         <td></td>
-                        <td > <input disabled type="text " id="d" value=""></td>
+                        <td>
+                            <input disabled type="text " id="d" value=""></td>
                     </tr>
-                    
+
                 </tbody>
             </table>
             <form action="/rend-book" method="post">
-            <input type="text" value="" id="aaaa" name="mem_id" class="no">
-            <input type="text" value="{{result.id}}" name="bk_id" class="no">
-            <input type="text" value="{{result.au_name}}" name="au_name" class="no">
-            <input type="text" value="{{result.cat}}" name="gen" class="no">
-            <input type="text" value="{{result.lg}}" name="lg" class="no">
-            <input type="text" value="{{result.bk_name}}" name="bk_nm" class="no">
-            <input type="text" id="aaa" class="no" value="" name="dt">            
-            <input type="text" id="aaa" class="no" value="false" name="status">
-            <input type="text" name="mm" class="no" id="mm">
-            <input type="text" name="yy" class="no" id="yy">   
-            <input type="text" name="mn" class="no" id="mn">         
-            <button type="submit" class="col-12 btn btn-primary">Rend</button>
+                <input type="text" value="" id="aaaa" name="mem_id" class="no">
+                <input type="text" value="{{result.bk_id}}" name="bk_id" class="no">
+                <input type="text" id="aaa" class="no" value="" name="date">
+                <input type="text" id="aaa" class="no" value="false" name="status">
+                <input type="text" name="eRD" class="no" id="eRD">
+                <input type="text" name="RD" class="no" id="">
+                <button type="submit" class="col-12 btn btn-primary">Rend</button>
             </form>
-            
+
         </div>
     </div>
-    
+
 </section>
 
 <style>
-.cen {
-    max-height: 350px;
+    .cen {
+        max-height: 350px;
 
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 30%;
-}
-input:disabled{
-    border: none
-}
-.no{
-    display: none;
-}
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 30%;
+    }
+    input:disabled {
+        border: none
+    }
+    .no {
+        display: none;
+    }
 </style>
 <script>
- 
 
-     
-$("#myform").submit((e)=>{
-    var id=document.getElementById('mem').value
-     console.log(id)
-    e.preventDefault()
-    $.ajax({
 
-        url: "/get-member/" + id,
-        method: "get",
-        
-        success:(response)=>{
-            
-        if(response.member){
+    $("#myform").submit((e) => {
+        var id = document.getElementById('m_id').value
+        console.log(id)
+        e.preventDefault()
+        $.ajax({
 
-            console.log(response.member)
-            document.getElementById('jjj').style.display="block";
-            document.getElementById('form').style.display="none";
-            document.getElementById('a').value=response.member.id;
-            document.getElementById('b').value=response.member.name;
-            document.getElementById('c').value=response.member.mob;
-            let date=new Date
-            let mm=date.getMonth()
-            let dd=date.getDate()
-            let yy=date.getFullYear()
-            let Dd=dd +"-" + mm +"-"  + yy
-            document.getElementById('d').value=Dd
-            document.getElementById('aaa').value=Dd
-            document.getElementById('aaaa').value=response.member.id;
-            document.getElementById('mm').value=mm
-            document.getElementById('yy').value=yy
-            document.getElementById('mn').value=response.member.name;
-            
-        }
-        }
+            url: "/get-member/" + id,
+            method: "get",
+
+            success: (response) => {
+
+                if(response.member){
+
+                    console.log(response.member)
+                    document.getElementById('jjj').style.display = "block";
+                    document.getElementById('form').style.display = "none";
+                    document.getElementById('a').value = response.member.m_id;
+                    document.getElementById('b').value = response.member.name;
+                    document.getElementById('c').value = response.member.mob;
+                    let date = new Date
+                    let mm = date.getMonth()+1
+                    let dd = date.getDate()
+                    let yy = date.getFullYear()
+                    let Dd = dd + "-" + mm + "-" + yy
+                    date.setDate(date.getDate()+18);
+                    let cmm=date.getMonth()+1;
+                    let eRD=date.getDate()+"-"+cmm+"-"+date.getFullYear();
+                    document.getElementById('d').value = Dd
+                    document.getElementById('aaa').value = Dd
+                    document.getElementById('aaaa').value = response.member.m_id;
+                    document.getElementById('eRD').value = eRD
+                    
+
+                }
+            }
+        })
     })
-})
 </script>

@@ -1,0 +1,26 @@
+db.book.insertMany([
+    {
+        "bk_id": 10001,
+        "title": "The Catcher in the Rye",
+        "author": "J.D. Salinger",
+        "yop": 1951,
+        "price": 9.99,
+        "pub": "Little, Brown and Company"
+    },
+    {
+        "bk_id": 10002,
+        "title": "To Kill a Mockingbird",
+        "author": "Harper Lee",
+        "yop": 1960,
+        "price": 8.99,
+        "pub": "J. B. Lippincott & Co."
+    },
+    {
+        "bk_id": 10003,
+        "title": "1984",
+        "author": "George Orwell",
+        "yop": 1949,
+        "price": 6.99,
+        "pub": "Secker & Warburg"
+    }
+])

@@ -39,7 +39,9 @@
                         <tr>
                             <th scope="row" class="tt">Book Id</th>
                             <th scope="row" class="tt">Date</th>
+                            <th scope="row" class="tt">Expected Return Date</th>
                             <th scope="row" class="tt">Status</th>
+                            <th scope="row" class="tt"></th>
                             
                         </tr>
                     {{#each result}}
@@ -48,12 +50,21 @@
                                 <a href="/view-book/{{this.bk_id}}">{{this.bk_id}}</a>
                             </td>
                             <td>   
-                               {{this.dt}}
+                               {{this.date}}
                             </td>
-                            <td>   
-                               {{this.status}}
+                             <td>   
+                               {{this.eRD}}
                             </td>
-
+                            {{#if this.status}}
+                                <td>Returned</td>
+                            {{else}}
+                                <td id="A{{this._id}}">   
+                                {{this.status}}
+                                </td>
+                                <td>
+                                    <img id="B{{this._id}}" onclick="updS('{{this._id}}')" height="30px" src="/images/img/Rimage.jpg" alt="book retun icon">
+                                </td>
+                            {{/if}}
                         </tr>                                               
                     {{/each}}
                 </tbody>
@@ -64,3 +75,23 @@
         </div>
     </div>
 </section>
+<script>
+
+
+    function updS(id){
+        $.ajax({
+
+            url: "/return-book/" + id,
+            method: "get",
+
+            success: function(response){
+                let sid='A'+id
+                let abc='B'+id
+
+                document.getElementById(sid).innerHTML="Returned";
+                document.getElementById(abc).style.display = "none";
+                
+            }
+        })
+    }
+</script>

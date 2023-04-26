@@ -1,0 +1,20 @@
+db.member.insertMany([
+    {
+        "m_id": 1001,
+        "name": "John Doe",
+        "mob": "555-555-1234",
+        "clg_id": 123456
+    },
+    {
+        "m_id": 1002,
+        "name": "Jane Smith",
+        "mob": "555-555-5678",
+        "clg_id": 987654
+    },
+    {
+        "m_id": 1003,
+        "name": "Bob Johnson",
+        "mob": "555-555-2468",
+        "clg_id": 543210
+    }
+])
