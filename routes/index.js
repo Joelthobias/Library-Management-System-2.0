@@ -188,7 +188,6 @@ router.post('/rend-book',(req,res)=>{
 })
 router.get('/rend',(req,res)=>{
   memberHelpers.getallrend().then((rend)=>{
-    // bookHelpers.viewbook()
     // let bg='white'
     // if(rend.status==='given'){
     //    bg='red'
@@ -201,7 +200,12 @@ router.get('/rend',(req,res)=>{
 })
 router.get('/return-book/:id',(req,res)=>{
   let id=req.params.id
-  memberHelpers.returnbook(id).then(()=>{
+  let date = new Date
+  let mm = date.getMonth()+1
+  let dd = date.getDate()
+  let yy = date.getFullYear()
+  let Dd = dd + "-" + mm + "-" + yy
+  memberHelpers.returnbook(id,Dd).then(()=>{
     res.redirect('/rend')
   })
 })

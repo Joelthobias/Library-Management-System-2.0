@@ -41,7 +41,7 @@
                             <th scope="row" class="tt">Date</th>
                             <th scope="row" class="tt">Expected Return Date</th>
                             <th scope="row" class="tt">Status</th>
-                            <th scope="row" class="tt"></th>
+                            <th scope="row" class="tt">Return/Date of Return</th>
                             
                         </tr>
                     {{#each result}}
@@ -57,6 +57,9 @@
                             </td>
                             {{#if this.status}}
                                 <td>Returned</td>
+                                <td>   
+                                    {{this.RD}}
+                                </td>
                             {{else}}
                                 <td id="A{{this._id}}">   
                                 {{this.status}}

@@ -45,16 +45,17 @@ module.exports={
   getallrend:()=>{
       return new Promise(async(resolve,reject)=>{
           let rend=null
-          rend=await db.get().collection('rendbook').find().sort({"sl":-1}).toArray()
+          rend=await db.get().collection('rendbook').find().sort({"_id":-1}).toArray()
           resolve(rend)
       }) 
   },
-  returnbook:(id)=>{
+  returnbook:(id,date)=>{
       return new Promise(async(resolve,reject)=>{
           db.get().collection('rendbook').updateOne({_id:ObjectId(id)},
           {
               $set:{
-                  status:true
+                  status:true,
+                  RD:date
               }
             })
         resolve(true)

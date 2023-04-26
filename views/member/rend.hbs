@@ -20,14 +20,11 @@
     <table class="table">
         <thead>
             <tr>
-                <th>Sl.No</th>
                 <th>Book Id</th>
-                <th>Book Name</th>
-                <th>Author</th>
-                <th>Gener</th>
                 <th>Member Id</th>
-                <th>Member Name</th>
-                <th>Date</th>                
+                <th>Borrow Date</th>
+                <th>Expected Reutn Date</th>
+                <th>Returned Date</th>                
                 {{!-- <th>Status</th>                 --}}
             </tr>
         </thead>
@@ -37,15 +34,12 @@
                 <tr id="{{this._id}}"  style="background-color: rgb(145, 207, 145);">
                 {{else}}
                 <tr id="{{this._id}}" style="background-color: rgb(253, 116, 116)">
-                {{/if}}
-                <td>{{this.sl}} </td>                
+                {{/if}}             
                 <td>{{this.bk_id}}</td>
-                <td>{{this.bk_nm}}</td>
-                <td>{{this.author}}</td>
-                <td>{{this.gen}}</td>
                 <td>{{this.mem_id}}</td>
-                <td>{{this.mn}}</td>
-                <td>{{this.dt}} </td>
+                <td>{{this.date}}</td>
+                <td>{{this.eRD}}</td>
+                <td>{{this.RD}} </td>
                 {{#if status}}
                 
                 {{else}}
