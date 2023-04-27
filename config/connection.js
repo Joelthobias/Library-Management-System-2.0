@@ -7,10 +7,10 @@ const state={
 
 module.exports.connect = (done) => {
        
- const url ='mongodb://localhost:27017'
-//const url = 'mongodb+srv://joel:Qwertyuiop@1@cluster0.chsu5.mongodb.net/admin'
+//  const url ='mongodb://localhost:27017'
+const url = 'mongodb+srv://joel:123@cluster0.chsu5.mongodb.net/admin'
 
-const dbname='lms'
+const dbname='minor'
 
         mongoclient.connect(url,(err, data) => {
                  if (err) return(err)
