@@ -1,20 +1,20 @@
 book={
-    bk_id:
-    title:
-    author:
-    yop: 
-    price: 
-    pub: 
+    bk_id: int,
+    title: varcahr(25),
+    author: varcahr(25),
+    yop: int,
+    price: int,
+    pub: varchar(35)
 }
 member={
-    m_id:1001,
-    name:"joel",
-    mob:9633428835,
-    clg_id:2101131282
+    m_id: int,
+    name: varcahr(25),
+    mob: decimal(12,0),
+    clg_id: decimal(12,0)
 }
 bTaken[{
-        bk_id:
-        Bdate:
-        Rdate:
-        fine:
+        bk_id:int
+        Bdate: date().
+        Rdate: date(),
+        fine: int
     }]
